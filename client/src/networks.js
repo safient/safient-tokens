@@ -45,4 +45,13 @@ export const NETWORKS = {
     blockExplorer: "https://ropsten.etherscan.io/",
     rpcUrl: `https://ropsten.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`,
   },
+  matictestnet: {
+    name: "matictestnet",
+    color: "#F60D01",
+    chainId: 80001,
+    faucet: "https://faucet.matic.network/",
+    blockExplorer: "https://explorer-mumbai.maticvigil.com/",
+    rpcUrl: 'https://rpc-mumbai.maticvigil.com',
+  },
+
 };

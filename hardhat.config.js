@@ -7,7 +7,7 @@ require("@nomiclabs/hardhat-waffle");
 
 const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 
-const defaultNetwork = "rinkeby";
+const defaultNetwork = "matictestnet";
 
 function mnemonic() {
   try {
@@ -52,6 +52,13 @@ module.exports = {
         mnemonic: mnemonic(),
       },
     },
+    matictestnet: {
+      url: 'https://rpc-mumbai.maticvigil.com',
+      accounts: {
+        mnemonic: mnemonic(),
+      },
+    },
+    
   },
   solidity: {
     compilers: [

@@ -13,7 +13,7 @@ import SafexMainDetails from "./components/SafexMainDetails/SafexMainDetails";
 import MyAccount from "./components/MyAccount/MyAccount";
 
 
-const targetNetwork = NETWORKS["rinkeby"];
+const targetNetwork = NETWORKS["matictestnet"];
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new StaticJsonRpcProvider(localProviderUrlFromEnv);
