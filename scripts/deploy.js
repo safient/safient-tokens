@@ -32,7 +32,7 @@ const deploy = async (contractName, _args = [], overrides = {}, libraries = {}) 
     extraGasInfo = `${utils.formatEther(gasUsed)} ETH, tx hash ${deployed.deployTransaction.hash}`;
   }
 
-  console.log(" 📄", chalk.cyan(contractName), "deployed to:", chalk.magenta(deployed.address));
+  console.log(" 📄", chalk.cyan(contractName), "   to:", chalk.magenta(deployed.address));
   console.log(" ⛽", chalk.grey(extraGasInfo), "\n");
 
   if (hre.config.defaultNetwork !== "localhost" && hre.config.defaultNetwork !== "hardhat") {
@@ -54,7 +54,8 @@ const deploy = async (contractName, _args = [], overrides = {}, libraries = {}) 
 async function main() {
   console.log(" 📡 Deploying...\n");
 
-  const safexToken = await deploy("SafexToken");
+  const safientToken = await deploy("SafientToken");
+  const safientCollectibe = await deploy("SafientBadge", ["https://api.safient.io/mint/"]);
 
   console.log(" 💾  Artifacts (address, abi, and args) saved to: ", chalk.blue("./artifacts"), "\n\n");
 }
