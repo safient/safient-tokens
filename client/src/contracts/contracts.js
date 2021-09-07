@@ -1,1 +1,1 @@
-module.exports = ["SafexToken"];
+module.exports = ["SafientBadge","SafientToken"];

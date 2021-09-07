@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { utils } from "ethers";
 import { Button, Text, Divider, Spacer, Snippet, Note, Input, useToasts } from "@geist-ui/react";
 
-function SafexMainDetails({ writeContracts, address }) {
-  const [safexContractAddress, setSafexContractAddress] = useState("");
-  const [safexTokenBalance, setSafexTokenBalance] = useState(0);
+function SafientToken({ writeContracts, address }) {
+  const [safientContractAddress, setSafientContractAddress] = useState("");
+  const [safientTokenBalance, setSafientTokenBalance] = useState(0);
   const [recipientAddress, setRecipientAddress] = useState(address);
   const [arbitrationFeeWei, setArbitrationFeeWei] = useState("");
   const [fundInEth, setFundInEth] = useState("");
@@ -20,9 +20,9 @@ function SafexMainDetails({ writeContracts, address }) {
 
   useEffect(async () => {
     try {
-      setSafexContractAddress(writeContracts.SafexToken.address);
-      const balance = await await writeContracts.SafexToken.totalSupply()
-      setSafexTokenBalance(utils.formatEther(balance));
+      setSafientContractAddress(writeContracts.SafientToken.address);
+      const balance = await await writeContracts.SafientToken.totalSupply()
+      setSafientTokenBalance(utils.formatEther(balance));
     } catch (e) {
       if (e.data !== undefined) {
         const error = e.data.message.split(":")[2].split("revert ")[1];
@@ -43,7 +43,7 @@ function SafexMainDetails({ writeContracts, address }) {
         fundInWei = utils.parseEther(fundInEth);
         try {
           setLoading(true);
-          const tx = await writeContracts.SafexToken.mintTokens(recipientAddress, { value: fundInWei });
+          const tx = await writeContracts.SafientToken.mintTokens(recipientAddress, { value: fundInWei });
           const txReceipt = await tx.wait();
           if (txReceipt.status === 1) {
             showAlert("Transaction successful!", "success");
@@ -69,15 +69,15 @@ function SafexMainDetails({ writeContracts, address }) {
 
   return (
     <>
-      <Text b>Safex token address :</Text>
+      <Text b>Safient token address :</Text>
       <Spacer />
-      <Snippet text={safexContractAddress} type="lite" filled symbol="" width="390px" />
+      <Snippet text={safientContractAddress} type="lite" filled symbol="" width="390px" />
       <Divider />
-      <Text b>Safex token supply :</Text>
+      <Text b>Safient token supply :</Text>
       <Text>
-        {safexTokenBalance}
+        {safientTokenBalance}
         <Spacer inline x={0.35} />
-        SAFE
+        SFNT
       </Text>
 
       <Note label="Note ">
@@ -113,4 +113,4 @@ function SafexMainDetails({ writeContracts, address }) {
   );
 }
 
-export default SafexMainDetails;
+export default SafientToken;

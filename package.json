@@ -1,5 +1,5 @@
 {
-  "name": "safex-token",
+  "name": "safient-tokens",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "clean": "hardhat clean",
     "compile": "hardhat compile",
     "chain": "hardhat node",
+    "console": "hardhat console",
     "test": "hardhat test --network hardhat",
     "deploy": "hardhat run scripts/deploy.js && hardhat run scripts/publish.js",
     "generate": "hardhat generate",
@@ -21,6 +22,7 @@
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.1",
     "bip39": "2.5.0",
     "chai": "^4.3.4",
     "chalk": "^4.1.1",
@@ -29,7 +31,6 @@
     "ethereumjs-wallet": "0.6.5",
     "ethers": "^5.1.3",
     "hardhat": "^2.2.0",
-    "@openzeppelin/contracts": "^3.2.0",
     "prettier-plugin-solidity": "*",
     "qrcode-terminal": "^0.12.0",
     "ramda": "^0.27.1"

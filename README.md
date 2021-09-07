@@ -1,10 +1,10 @@
-# Safex Token
+# Safient Tokens
 
 ## quickstart
 
 ```bash
-git clone https://github.com/getsafex/safex-token.git
-cd safex-token
+git clone https://github.com/safient/safient-token.git
+cd safient-token
 npm install
 npm run chain
 ```

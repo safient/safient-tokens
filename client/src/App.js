@@ -9,11 +9,12 @@ import { Text, Page, Tabs, Row, Col, Spacer } from "@geist-ui/react";
 
 import ContractsNotDeployed from "./components/ContractsNotDeployed/ContractsNotDeployed";
 import ConnectWeb3Modal from "./components/ConnectWeb3Modal/ConnectWeb3Modal";
-import SafexMainDetails from "./components/SafexMainDetails/SafexMainDetails";
+import SafientToken from "./components/SafientToken";
+import SafientBadges from "./components/SafientBadges";
 import MyAccount from "./components/MyAccount/MyAccount";
 
 
-const targetNetwork = NETWORKS["matictestnet"];
+const targetNetwork = NETWORKS["rinkeby"];
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new StaticJsonRpcProvider(localProviderUrlFromEnv);
@@ -41,8 +42,8 @@ function App() {
     <Page size="large">
       <Row align="middle">
         <Col span={20}>
-          <Page.Header>
-            <Text h2>Safex Token</Text>
+          <Page.Header>Safient
+            <Text h2>Safient Token</Text>
           </Page.Header>
         </Col>
         <Col span={4}>
@@ -54,12 +55,15 @@ function App() {
       ) : (
         <>
           <Spacer y={1} />
-          <Tabs initialValue="2">
+          <Tabs initialValue="3">
             <Spacer y={1} />
-            <Tabs.Item label="safex" value="1">
-              <SafexMainDetails address={address} writeContracts={writeContracts} />
+            <Tabs.Item label="Tokens" value="1">
+              <SafientToken address={address} writeContracts={writeContracts} />
             </Tabs.Item>
-            <Tabs.Item label="account" value="2">
+            <Tabs.Item label="Badges" value="2">
+              <SafientBadges address={address} writeContracts={writeContracts} />
+            </Tabs.Item>
+            <Tabs.Item label="account" value="3">
               <MyAccount address={address} balance={balance} writeContracts={writeContracts} />
             </Tabs.Item>
           </Tabs>

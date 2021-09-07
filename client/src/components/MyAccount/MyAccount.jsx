@@ -7,7 +7,7 @@ function MyAccount({ address, balance, writeContracts }) {
 
   useEffect(async () => {
     try {
-      setTokenBalance(await writeContracts.SafexToken.balanceOf(address));
+      setTokenBalance(await writeContracts.SafientToken.balanceOf(address));
     } catch (e) {
       console.log(e);
     }
@@ -27,7 +27,7 @@ function MyAccount({ address, balance, writeContracts }) {
         ETH
       </Text>
       <Divider />
-      <Text b>Safex token balance :</Text>
+      <Text b>Safient token balance :</Text>
       <Text>
         {balance !== undefined ? utils.formatEther(tokenBalance) : ""}
         <Spacer inline x={0.35} />
